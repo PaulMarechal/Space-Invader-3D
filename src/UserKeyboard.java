@@ -6,8 +6,7 @@ public class UserKeyboard implements KeyListener
 	
 	private GLHandler events;
 	
-	public UserKeyboard(GLHandler events)
-	{
+	public UserKeyboard(GLHandler events) {
 		this.events = events;
 	}
 
@@ -18,13 +17,14 @@ public class UserKeyboard implements KeyListener
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) 
-	{
+	public void keyPressed(KeyEvent e) {
 
 		if (e.getKeyChar() == 'q')
 			this.events.goLeft();
 		if (e.getKeyChar() == 'd')
 			this.events.goRight();
+		if (e.getKeyChar() == ' ')
+			this.events.goMissile();
 	}
 
 	@Override

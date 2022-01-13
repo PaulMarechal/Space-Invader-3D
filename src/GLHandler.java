@@ -4,9 +4,10 @@ import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.glu.GLU;
+import java.awt.event.MouseEvent;
 
-public class GLHandler implements GLEventListener
-{
+
+public class GLHandler implements GLEventListener {
 	
 	private GLU glu;
 	private float angle = 45;
@@ -14,13 +15,14 @@ public class GLHandler implements GLEventListener
 	private ArrayList<Shape3D> items3D;
 	private ArrayList<Shape3D> ennemis3D;
 	
-	public GLHandler()
-	{
+	public GLHandler() {
 		this.glu = new GLU();
 		this.angle = 0;
 		this.items3D = new ArrayList<Shape3D>();
 		this.ennemis3D = new ArrayList<Shape3D>();				
-		this.items3D.add(new Cube3D(0, -3, -10, 0.5f));
+		this.items3D.add(new Cube3D(0, -3, -13, 0.5f));
+		
+		
 		
 		//this.ennemis3D.add(new Ennemis(0, 2, -10, 0.5f));
 		this.ennemis3D.add(new Ennemis(2, 2, -13, 0.5f));
@@ -41,7 +43,7 @@ public class GLHandler implements GLEventListener
 		this.ennemis3D.add(new Ennemis(-2, 4, -13, 0.5f));
 		this.ennemis3D.add(new Ennemis(-4, 4, -13, 0.5f));
 	}
-
+	
 	@Override
 	public void init(GLAutoDrawable draw) {
 		GL2 gl = draw.getGL().getGL2();
@@ -74,8 +76,7 @@ public class GLHandler implements GLEventListener
 	}
 
 	@Override
-	public void display(GLAutoDrawable draw) 
-	{
+	public void display(GLAutoDrawable draw) {
 		// TODO Auto-generated method stub
 		// DESSIN ???
 		GL2 gl = draw.getGL().getGL2();
@@ -92,17 +93,23 @@ public class GLHandler implements GLEventListener
 		//this.angle += 0.01;
 		
 		for (Shape3D e : this.ennemis3D)
-			e.display(gl);
-		
+			e.display(gl);		
 		
 	}
 
+
 	public void goRight() { 
-		this.posX += 0.1f; 
+		Cube3D cube = (Cube3D)this.items3D.get(0);
+		cube.goRight();
 	}
 
 	public void goLeft() { 
-		this.posX -= 0.1f; 
+		Cube3D cube = (Cube3D)this.items3D.get(0);
+		cube.goLeft();
+	}
+	
+	public void goMissile() {
+		this.ennemis3D.add(new Missile(0, -3, -13, 0.5f));
 	}
 
 	@Override

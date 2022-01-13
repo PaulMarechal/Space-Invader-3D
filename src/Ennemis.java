@@ -2,15 +2,24 @@ import com.jogamp.opengl.GL2;
 
 public class Ennemis extends Shape3D
 {
+	private float rquad = 0.0f;
 	
-	public Ennemis(float x, float y, float z, float size)
-	{
+	public Ennemis(float x, float y, float z, float size) {
 		this.x = x; this.y = y; this.z = z;
 		this.size = size;
 	}
 	
-	public void display(GL2 gl)
-	{
+	private void move() {
+		for (int i = 0 ; i < 5; i++) {
+			rquad+= 0.01f ;
+			if (i > 5) {
+				rquad-= 0.01f;
+			}
+		} 
+	}
+	
+	public void display(GL2 gl) {
+		//gl.glRotatef(rquad, 0.0f, 0.01f, 0.0f); 
 		gl.glPushMatrix();
 		gl.glTranslatef(x, y, z);
 		gl.glScalef(size, size, size);
@@ -54,6 +63,10 @@ public class Ennemis extends Shape3D
 		gl.glVertex3d(-1, 1, -1);
 		gl.glEnd();	
 		gl.glPopMatrix();
+		
+		//rquad += 0.001f;
+		//move();
+		
 	}
 
 }

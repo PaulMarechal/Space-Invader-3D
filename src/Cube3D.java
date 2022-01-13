@@ -4,15 +4,15 @@ public class Cube3D extends Shape3D
 {
 	
 	private float posX, posY;
+	private float Cube3D;
 	
-	public Cube3D(float x, float y, float z, float size)
-	{
+	public Cube3D(float x, float y, float z, float size) {
 		this.x = x; this.y = y; this.z = z;
 		this.size = size;
 	}
 	
-	public void display(GL2 gl)
-	{
+	public void display(GL2 gl) {
+		
 		gl.glPushMatrix();
 		gl.glTranslatef(x, y, z);
 		gl.glScalef(size, size, size);
@@ -60,11 +60,11 @@ public class Cube3D extends Shape3D
 	
 	public void goRight() { 
 		//this.items3D.posX += 0.1f;
-		this.posX += 0.1f; 
+		this.x += 0.1f; 
 	}
 	
 	public void goLeft() { 
-		this.posX -= 0.1f; 
+		this.x -= 0.1f; 
 	}
 
 }

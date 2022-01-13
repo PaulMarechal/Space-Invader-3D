@@ -8,15 +8,15 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class MainGL
 {
 	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		JFrame fenetre = new JFrame();
 		GLCanvas canvas = new GLCanvas();
 		GLHandler events = new GLHandler();
-		//Ennemis ennemis = new Ennemis(0, 0, -10, 0.5f);
+		Ennemis ennemis = new Ennemis(0, 0, -10, 0.5f);
 		canvas.addKeyListener(new UserKeyboard(events));
 		canvas.setPreferredSize(new Dimension(800, 600));
 		canvas.addGLEventListener(events);
+		
 		fenetre.getContentPane().add(canvas);
 		fenetre.setTitle("Space Invader");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
