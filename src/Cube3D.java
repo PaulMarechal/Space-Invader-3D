@@ -60,7 +60,6 @@ public class Cube3D extends Shape3D
 	}
 	
 	public void goRight() { 
-		//this.items3D.posX += 0.1f;
 		this.x += 0.1f; 
 	}
 	
@@ -69,7 +68,6 @@ public class Cube3D extends Shape3D
 	}
 
 	public float getX() {
-		// TODO Auto-generated method stub
 		return this.x;
 	}
 	

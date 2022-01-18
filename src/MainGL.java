@@ -5,8 +5,7 @@ import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 
-public class MainGL
-{
+public class MainGL{
 	
 	public static void main(String[] args) {
 		JFrame fenetre = new JFrame();
@@ -25,9 +24,7 @@ public class MainGL
 		FPSAnimator anim = new FPSAnimator(canvas, 60);
 	
 		anim.start();
-		
 	}
-
 }
 
 

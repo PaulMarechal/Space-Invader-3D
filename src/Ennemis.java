@@ -10,12 +10,10 @@ public class Ennemis extends Shape3D {
 		this.size = size;
 		
 		this.maxY = 2;
-		
 	}
 	
 
 	public void display(GL2 gl) {
-		//gl.glRotatef(rquad, 0.0f, 0.01f, 0.0f); 
 		gl.glPushMatrix();
 		gl.glTranslatef(x, y, z);
 		gl.glScalef(size, size, size);
@@ -59,10 +57,5 @@ public class Ennemis extends Shape3D {
 		gl.glVertex3d(-1, 1, -1);
 		gl.glEnd();	
 		gl.glPopMatrix();
-		
-		//rquad += 0.001f;
-		//move();
-		
 	}
-
 }

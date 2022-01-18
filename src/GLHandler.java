@@ -14,24 +14,20 @@ public class GLHandler implements GLEventListener {
 	private float posX, posY;
 	private ArrayList<Shape3D> items3D;
 	private ArrayList<Shape3D> ennemis3D;
-	private ArrayList<Shape3D> missile3D;
 	private Cube3D cube;
 	private Missile missile;
+	private Ennemis ennemis;
 	
 	
 	public GLHandler() {
 		this.glu = new GLU();
 		this.angle = 0;
 		this.items3D = new ArrayList<Shape3D>();
-		this.ennemis3D = new ArrayList<Shape3D>();		
-		this.missile3D = new ArrayList<Shape3D>();	
+		this.ennemis3D = new ArrayList<Shape3D>();			
 		
 		this.items3D.add(new Cube3D(0, -3, -13, 0.5f));
 		this.cube = (Cube3D)this.items3D.get(0);
 		
-		//this.missile = new Missile(cube.getX(), cube.getY(), -13, 0.5f);
-		
-		//this.ennemis3D.add(new Ennemis(0, 2, -10, 0.5f));
 		this.ennemis3D.add(new Ennemis(2, 2, -13, 0.5f));
 		this.ennemis3D.add(new Ennemis(4, 2, -13, 0.5f));
 		this.ennemis3D.add(new Ennemis(0, 2, -13, 0.5f));
@@ -49,24 +45,18 @@ public class GLHandler implements GLEventListener {
 		this.ennemis3D.add(new Ennemis(0, 4, -13, 0.5f));
 		this.ennemis3D.add(new Ennemis(-2, 4, -13, 0.5f));
 		this.ennemis3D.add(new Ennemis(-4, 4, -13, 0.5f));
-		
 	}
-	
-	
-	
+
 	@Override
 	public void init(GLAutoDrawable draw) {
 		GL2 gl = draw.getGL().getGL2();
 		gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-		// TODO Auto-generated method stub
-		//gl.glClearDepth(0.0f);
 		gl.glEnable(GL2.GL_DEPTH_TEST);
 		
 	}
 	
 	@Override
 	public void reshape(GLAutoDrawable draw, int x, int y, int width, int height) {
-		// TODO Auto-generated method stub
 		GL2 gl = draw.getGL().getGL2();
 		// -- SCREEN
 		float aspect = (float)width / height;
@@ -98,63 +88,49 @@ public class GLHandler implements GLEventListener {
 		
 		for (Shape3D s : this.items3D)
 			s.display(gl);
-		
-		// Update properties
-		//this.angle += 0.01;
-		
+
 		for (Shape3D e : this.ennemis3D)
 			e.display(gl);
 		
 		
-		
-			if (this.missile != null) {
-				System.out.println("Il rentre dans la boucle");
-				//System.out.println(this.missile.posMisY());
+		if (this.missile != null) {			
 				
+			float posMissY = this.missile.getY();
+			float posMissX = this.missile.getX();
 				
-				float posMissY = this.missile.getY();
-				System.out.println("possition posMissY : " + posMissY);
-				
-				for(int b = 0; b < 2; b++) {
-					System.out.println("opération n : " + b);
-					System.out.println("Position missile : " + this.missile.posMisY() + "\n" );
+			for(int b = 0; b < 2; b++) {		
 					
+				if(posMissY > 6) {
+					removeMissile();
+					continue;
+				}
 					
-					if( posMissY > 4) {
-						removeMissile();
-						System.out.println("Il se suppr");
-						continue;
-					}
-				} 	
-			} 
-		}
-
-
-
-	//public Cube3D cube = (Cube3D) items3D.get(0);
+				if (posMissY == 2 && cube.getX() == 2) {
+					removeMissile();
+					removeEnnemis();
+				}
+			}
+		} 
+	}
 
 	public void goLeft() { 
-		//this.cube = (Cube3D)this.items3D.get(0);
 		cube.goLeft();	
 	}
 	
 	public void goRight() { 
-		//Cube3D cube = (Cube3D)this.items3D.get(0);
 		cube.goRight();
 	}
 	
 	public void removeMissile() {
-		//Missile missile = (Missile)this.ennemis3D.get(0);
 		ennemis3D.remove(this.missile);
-		System.out.println("il rentre dans la fuction remove");
 	}
 	
-
-
+	public void removeEnnemis() {
+		ennemis3D.remove(this.ennemis3D);
+	}
 
 
 	public void goMissile() {
-		//Missile missile = new Missile(cube.getX(), cube.getY(), -13, 0.5f);
 		this.missile = new Missile(cube.getX(), cube.getY(), -13, 0.5f);
 		this.ennemis3D.add(missile);
 	}
@@ -162,9 +138,6 @@ public class GLHandler implements GLEventListener {
 
 	@Override
 	public void dispose(GLAutoDrawable arg0) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
-
-
 }

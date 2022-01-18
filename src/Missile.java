@@ -10,13 +10,11 @@ public class Missile extends Shape3D {
 		this.x = x; 
 		this.y = y; 
 		this.z = z;
-		this.size = size;
-		
+		this.size = size;	
 	}
 
 	private void move() {
 		for (int i = 0 ; i < 2; i++) {
-			//rquad+= 0.06f ;
 			this.y += 0.05;
 		} 
 	}
@@ -31,38 +29,38 @@ public class Missile extends Shape3D {
 		gl.glBegin(GL2.GL_QUADS);
 		// Front
 		gl.glColor3d(1.0f, 1.0f, 1.0f);
-		gl.glVertex3d(-0.1, -0.3, 1);
-		gl.glVertex3d(0.1, -0.3, 1);
-		gl.glVertex3d(0.1, 0.5, 1);
-		gl.glVertex3d(-0.1, 0.5, 1);
+		gl.glVertex3d(-0.1, -0.1, 0.1);
+		gl.glVertex3d(0.1, -0.1, 0.1);
+		gl.glVertex3d(0.1, 0.5, 0.1);
+		gl.glVertex3d(-0.1, 0.5, 0.1);
 		// Rear
 		gl.glColor3d(1.0f, 1.0f, 1.0f);
-		gl.glVertex3d(-0.1, -0.3, -1);
-		gl.glVertex3d(0.1, -0.3, -1);
-		gl.glVertex3d(0.1, 0.5, -1);
-		gl.glVertex3d(-0.1, 0.5, -1);
+		gl.glVertex3d(-0.1, -0.1, -0.1);
+		gl.glVertex3d(0.1, -0.1, -0.1);
+		gl.glVertex3d(0.1, 0.5, -0.1);
+		gl.glVertex3d(-0.1, 0.5, -0.1);
 		// Left
 		gl.glColor3d(1.0f, 1.0f, 1.0f);
-		gl.glVertex3d(-0.1, -0.3, -1);
-		gl.glVertex3d(-0.1, -0.3, 1);
-		gl.glVertex3d(-0.1, 0.5,  1);
-		gl.glVertex3d(-0.1, 0.5, -1);
+		gl.glVertex3d(-0.1, -0.1, -0.1);
+		gl.glVertex3d(-0.1, -0.1, 0.1);
+		gl.glVertex3d(-0.1, 0.5,  0.1);
+		gl.glVertex3d(-0.1, 0.5, -0.1);
 		// Right
 		gl.glColor3d(1.0f, 1.0f, 1.0f);
-		gl.glVertex3d(0.1, -0.3, -1);
-		gl.glVertex3d(0.1, -0.3, 1);
-		gl.glVertex3d(0.1, 0.5,  1);
-		gl.glVertex3d(0.1, 0.5, -1);
+		gl.glVertex3d(0.1, -0.1, -0.1);
+		gl.glVertex3d(0.1, -0.1, 0.1);
+		gl.glVertex3d(0.1, 0.5,  0.1);
+		gl.glVertex3d(0.1, 0.5, -0.1);
 		// Bottom
 		gl.glColor3d(1.0f, 1.0f, 1.0f);
-		gl.glVertex3d(-0.1, -0.3, -0.3);
-		gl.glVertex3d(0.1, -0.3, 1);
-		gl.glVertex3d(0.1, -0.5, -1);
-		gl.glVertex3d(-0.1, -0.5, -1);
+		gl.glVertex3d(-0.1, -0.1, -0.1);
+		gl.glVertex3d(0.1, -0.1, 0.1);
+		gl.glVertex3d(0.1, -0.5, -0.1);
+		gl.glVertex3d(-0.1, -0.5, -0.1);
 		// Up
 		gl.glColor3d(1.0f, 1.0f, 1.0f);
-		gl.glVertex3d(-0.1, 0.3, 0.1);
-		gl.glVertex3d(0.1, 0.3, 0.1);
+		gl.glVertex3d(-0.1, 0.1, 0.1);
+		gl.glVertex3d(0.1, 0.1, 0.1);
 		gl.glVertex3d(0.1, 0.5, -0.1);
 		gl.glVertex3d(-0.1, 0.5, -0.1);
 		gl.glEnd();	
@@ -72,17 +70,22 @@ public class Missile extends Shape3D {
 	}
 
 	public float size() {
-		// TODO Auto-generated method stub
 		return this.size;
 	}
 	
 	public float posMisY() {
 		return this.y;
 	}
+	
+	public float posMisX() {
+		return this.x;
+	}
 
 	public Missile get(int i) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+	public float getX() {
+		return 0;
+	}
 }
