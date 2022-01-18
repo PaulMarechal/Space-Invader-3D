@@ -4,32 +4,21 @@ import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.glu.GLU;
-import java.awt.event.MouseEvent;
 
-
-public class GLHandler implements GLEventListener {
+public class GLHandlerCube implements GLEventListener
+{
 	
 	private GLU glu;
 	private float angle = 45;
 	private float posX, posY;
 	private ArrayList<Shape3D> items3D;
 	private ArrayList<Shape3D> ennemis3D;
-	private ArrayList<Shape3D> missile3D;
-	private Cube3D cube;
-	private Missile missile;
 	
-	
-	public GLHandler() {
+	public GLHandlerCube()
+	{
 		this.glu = new GLU();
 		this.angle = 0;
-		this.items3D = new ArrayList<Shape3D>();
-		this.ennemis3D = new ArrayList<Shape3D>();		
-		this.missile3D = new ArrayList<Shape3D>();	
-		
-		this.items3D.add(new Cube3D(0, -3, -13, 0.5f));
-		this.cube = (Cube3D)this.items3D.get(0);
-		
-		//this.missile = new Missile(cube.getX(), cube.getY(), -13, 0.5f);
+		this.ennemis3D = new ArrayList<Shape3D>();				
 		
 		//this.ennemis3D.add(new Ennemis(0, 2, -10, 0.5f));
 		this.ennemis3D.add(new Ennemis(2, 2, -13, 0.5f));
@@ -49,11 +38,10 @@ public class GLHandler implements GLEventListener {
 		this.ennemis3D.add(new Ennemis(0, 4, -13, 0.5f));
 		this.ennemis3D.add(new Ennemis(-2, 4, -13, 0.5f));
 		this.ennemis3D.add(new Ennemis(-4, 4, -13, 0.5f));
-		
-		
-		
 	}
 	
+
+
 	@Override
 	public void init(GLAutoDrawable draw) {
 		GL2 gl = draw.getGL().getGL2();
@@ -86,7 +74,8 @@ public class GLHandler implements GLEventListener {
 	}
 
 	@Override
-	public void display(GLAutoDrawable draw) {
+	public void display(GLAutoDrawable draw) 
+	{
 		// TODO Auto-generated method stub
 		// DESSIN ???
 		GL2 gl = draw.getGL().getGL2();
@@ -106,34 +95,7 @@ public class GLHandler implements GLEventListener {
 			e.display(gl);
 		
 		
-		
 	}
-	
-	//public Cube3D cube = (Cube3D) items3D.get(0);
-
-	public void goLeft() { 
-		//this.cube = (Cube3D)this.items3D.get(0);
-		cube.goLeft();	
-	}
-	
-	public void goRight() { 
-		//Cube3D cube = (Cube3D)this.items3D.get(0);
-		cube.goRight();
-	}
-	
-	public void removeMissile() {
-		//Missile missile = (Missile)this.ennemis3D.get(0);
-		missile.remove();
-	}
-	
-	public void goMissile() {
-		//Missile missile = new Missile(cube.getX(), cube.getY(), -13, 0.5f);
-		this.missile = new Missile(cube.getX(), cube.getY(), -13, 0.5f);
-		this.ennemis3D.add(missile);
-		System.out.println("la");
-		
-	}
-	
 
 	@Override
 	public void dispose(GLAutoDrawable arg0) {

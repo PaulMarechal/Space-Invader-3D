@@ -17,7 +17,7 @@ public class Ennemis extends Shape3D
 			}
 		} 
 	}
-	
+
 	public void display(GL2 gl) {
 		//gl.glRotatef(rquad, 0.0f, 0.01f, 0.0f); 
 		gl.glPushMatrix();

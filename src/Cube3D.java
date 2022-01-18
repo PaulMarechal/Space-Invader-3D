@@ -56,6 +56,7 @@ public class Cube3D extends Shape3D
 		gl.glVertex3d(-1, 0.5, -1);
 		gl.glEnd();	
 		gl.glPopMatrix();
+		
 	}
 	
 	public void goRight() { 
@@ -65,6 +66,15 @@ public class Cube3D extends Shape3D
 	
 	public void goLeft() { 
 		this.x -= 0.1f; 
+	}
+
+	public float getX() {
+		// TODO Auto-generated method stub
+		return this.x;
+	}
+	
+	public float getY() {
+		return this.y;
 	}
 
 }

@@ -1,23 +1,22 @@
 import com.jogamp.opengl.GL2;
 
-public class Missile extends Shape3D
-{
+public class Missile extends Shape3D {
 	
-	private float posX, posY;
-	private float Cube3D;
 	private float rquad = 0.0f;
+	public int posMisY;
+	private float maxT;
 	
 	public Missile(float x, float y, float z, float size) {
-		this.x = x; this.y = y; this.z = z;
+		this.x = x; 
+		this.y = y; 
+		this.z = z;
 		this.size = size;
+		
 	}
-	
+
 	private void move() {
 		for (int i = 0 ; i < 5; i++) {
 			rquad+= 0.06f ;
-			if (i > 5) {
-				rquad-= 0.1f;
-			}
 		} 
 	}
 	
@@ -69,6 +68,21 @@ public class Missile extends Shape3D
 		gl.glPopMatrix();
 		
 		move();
+	}
+
+	public void remove() {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public float posMisY() {
+		return this.y;
 	}
 
 }

@@ -23,6 +23,7 @@ public class MainGL
 		fenetre.pack();
 		fenetre.setVisible(true);
 		FPSAnimator anim = new FPSAnimator(canvas, 60);
+	
 		anim.start();
 		
 	}
