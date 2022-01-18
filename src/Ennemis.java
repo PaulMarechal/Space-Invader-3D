@@ -58,4 +58,15 @@ public class Ennemis extends Shape3D {
 		gl.glEnd();	
 		gl.glPopMatrix();
 	}
+
+	public float getX() {
+		// TODO Auto-generated method stub
+		return (float) this.x;
+	}
+
+	public void remove(int j) {
+		// TODO Auto-generated method stub
+		remove(j);
+		
+	}
 }

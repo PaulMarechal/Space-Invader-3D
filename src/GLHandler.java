@@ -17,6 +17,7 @@ public class GLHandler implements GLEventListener {
 	private Cube3D cube;
 	private Missile missile;
 	private Ennemis ennemis;
+	private float size = (float) 0.1;
 	
 	
 	public GLHandler() {
@@ -104,11 +105,22 @@ public class GLHandler implements GLEventListener {
 					removeMissile();
 					continue;
 				}
-					
-				if (posMissY == 2 && cube.getX() == 2) {
-					removeMissile();
-					removeEnnemis();
-				}
+				
+				System.out.println("Y : " + posMissY);
+				System.out.println("X : " + cube.getX());
+				
+				if (
+						(posMissY > 0 && cube.getX() >= -0.5 && cube.getX() <= 0.5) || 
+						(posMissY > 0 && cube.getX() <= -1.5 && cube.getX() >= -2.5)|| 
+						(posMissY > 0 && cube.getX() <= -3.5 && cube.getX() >= -4.5)|| 
+						(posMissY > 0 && cube.getX() >= 3.5 && cube.getX() <= 4.5)  || 
+						(posMissY > 0 && cube.getX() >= 1.5 && cube.getX() <= 2.5)  || 
+				        (posMissY > 4 && cube.getX() >= 3.5 && cube.getX() <= 4.5)  ||
+				        (posMissY > 2 && cube.getX() >= 1.5 && cube.getX() <= 2.5)){
+							removeMissile();
+							removeEnnemis();
+					System.out.println("je rentre dans la boucle 0 test");
+				} 
 			}
 		} 
 	}
