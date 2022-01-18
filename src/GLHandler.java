@@ -50,9 +50,9 @@ public class GLHandler implements GLEventListener {
 		this.ennemis3D.add(new Ennemis(-2, 4, -13, 0.5f));
 		this.ennemis3D.add(new Ennemis(-4, 4, -13, 0.5f));
 		
-		
-		
 	}
+	
+	
 	
 	@Override
 	public void init(GLAutoDrawable draw) {
@@ -107,8 +107,30 @@ public class GLHandler implements GLEventListener {
 		
 		
 		
-	}
-	
+			if (this.missile != null) {
+				System.out.println("Il rentre dans la boucle");
+				//System.out.println(this.missile.posMisY());
+				
+				
+				float posMissY = this.missile.getY();
+				System.out.println("possition posMissY : " + posMissY);
+				
+				for(int b = 0; b < 2; b++) {
+					System.out.println("opération n : " + b);
+					System.out.println("Position missile : " + this.missile.posMisY() + "\n" );
+					
+					
+					if( posMissY > 4) {
+						removeMissile();
+						System.out.println("Il se suppr");
+						continue;
+					}
+				} 	
+			} 
+		}
+
+
+
 	//public Cube3D cube = (Cube3D) items3D.get(0);
 
 	public void goLeft() { 
@@ -123,15 +145,18 @@ public class GLHandler implements GLEventListener {
 	
 	public void removeMissile() {
 		//Missile missile = (Missile)this.ennemis3D.get(0);
-		missile.remove();
+		ennemis3D.remove(this.missile);
+		System.out.println("il rentre dans la fuction remove");
 	}
 	
+
+
+
+
 	public void goMissile() {
 		//Missile missile = new Missile(cube.getX(), cube.getY(), -13, 0.5f);
 		this.missile = new Missile(cube.getX(), cube.getY(), -13, 0.5f);
 		this.ennemis3D.add(missile);
-		System.out.println("la");
-		
 	}
 	
 

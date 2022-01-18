@@ -15,8 +15,9 @@ public class Missile extends Shape3D {
 	}
 
 	private void move() {
-		for (int i = 0 ; i < 5; i++) {
-			rquad+= 0.06f ;
+		for (int i = 0 ; i < 2; i++) {
+			//rquad+= 0.06f ;
+			this.y += 0.05;
 		} 
 	}
 	
@@ -70,19 +71,18 @@ public class Missile extends Shape3D {
 		move();
 	}
 
-	public void remove() {
+	public float size() {
 		// TODO Auto-generated method stub
-		
-		
-	}
-
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.size;
 	}
 	
 	public float posMisY() {
 		return this.y;
+	}
+
+	public Missile get(int i) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,22 +1,18 @@
 import com.jogamp.opengl.GL2;
 
-public class Ennemis extends Shape3D
-{
+public class Ennemis extends Shape3D {
 	private float rquad = 0.0f;
+	private float maxY;
+	private float maxX;
 	
 	public Ennemis(float x, float y, float z, float size) {
 		this.x = x; this.y = y; this.z = z;
 		this.size = size;
+		
+		this.maxY = 2;
+		
 	}
 	
-	private void move() {
-		for (int i = 0 ; i < 5; i++) {
-			rquad+= 0.01f ;
-			if (i > 5) {
-				rquad-= 0.01f;
-			}
-		} 
-	}
 
 	public void display(GL2 gl) {
 		//gl.glRotatef(rquad, 0.0f, 0.01f, 0.0f); 
