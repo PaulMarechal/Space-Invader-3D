@@ -101,7 +101,6 @@ public class GLHandler implements GLEventListener {
 		
 		for (Shape3D i : this.ennemis3D)
 			i.display(gl);
-
 		
 		//for (Shape3D e : this.ennemis3D) {
 		//	e.display(gl);
@@ -123,6 +122,9 @@ public class GLHandler implements GLEventListener {
 		//	}
 			
 		//}
+		float gauche = 2;
+		float droit = 2;
+		
 		
 		if(missile != null) {
 			for (Shape3D e : this.ennemis3D) { 
@@ -139,6 +141,8 @@ public class GLHandler implements GLEventListener {
 				}
 			}
 		}
+		
+		
 	}
 	
 
