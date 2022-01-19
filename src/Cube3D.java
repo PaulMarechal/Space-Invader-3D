@@ -75,4 +75,11 @@ public class Cube3D extends Shape3D
 		return this.y;
 	}
 
+	public boolean hit(float x, float y, float size) {
+		x = posX;
+		y = posY;
+		size = this.size/2;
+		
+		return true;
+	}
 }
