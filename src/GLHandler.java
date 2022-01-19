@@ -18,6 +18,7 @@ public class GLHandler implements GLEventListener {
 	private Missile missile;
 	private Ennemis ennemis;
 	private float size = (float) 0.1;
+	public int score = 0;
 	
 	
 	public GLHandler() {
@@ -128,6 +129,12 @@ public class GLHandler implements GLEventListener {
 				if (e.hit(missile.x, missile.y)) {
 					ennemis3D.remove(e);
 					ennemis3D.remove(missile);
+					score += 20;
+					System.out.println("score : " + score);
+					if (score == 300) {
+						System.out.println("🎉 YOU WIN !! 🎉");
+						System.out.println("Congratulation !! ");
+					}
 					break;
 				}
 			}
