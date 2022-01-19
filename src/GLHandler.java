@@ -29,23 +29,31 @@ public class GLHandler implements GLEventListener {
 		this.items3D.add(new Cube3D(0, -3, -13, 0.5f));
 		this.cube = (Cube3D)this.items3D.get(0);
 		
-		this.ennemis3D.add(new Ennemis(2, 2, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(4, 2, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(0, 2, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(-2, 2, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(-4, 2, -13, 0.5f));
+		ennemis3D.add(1,new Ennemis(2, 2, -13, 0.5f));
+		ennemis3D.add(new Ennemis(4, 2, -13, 0.5f));
+		ennemis3D.add(new Ennemis(0, 2, -13, 0.5f));
+		ennemis3D.add(new Ennemis(-2, 2, -13, 0.5f));
+		ennemis3D.add(new Ennemis(-4, 2, -13, 0.5f));
 		
-		this.ennemis3D.add(new Ennemis(2, 0, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(4, 0, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(0, 0, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(-2, 0, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(-4, 0, -13, 0.5f));
+		ennemis3D.add(new Ennemis(2, 0, -13, 0.5f));
+		ennemis3D.add(new Ennemis(4, 0, -13, 0.5f));
+		ennemis3D.add(new Ennemis(0, 0, -13, 0.5f));
+		ennemis3D.add(new Ennemis(-2, 0, -13, 0.5f));
+		ennemis3D.add(new Ennemis(-4, 0, -13, 0.5f));
 		
-		this.ennemis3D.add(new Ennemis(2, 4, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(4, 4, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(0, 4, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(-2, 4, -13, 0.5f));
-		this.ennemis3D.add(new Ennemis(-4, 4, -13, 0.5f));
+		ennemis3D.add(new Ennemis(2, 4, -13, 0.5f));
+		ennemis3D.add(new Ennemis(4, 4, -13, 0.5f));
+		ennemis3D.add(new Ennemis(0, 4, -13, 0.5f));
+		ennemis3D.add(new Ennemis(-2, 4, -13, 0.5f));
+		ennemis3D.add(new Ennemis(-4, 4, -13, 0.5f));
+		
+		
+		// test remove
+		//Shape3D value = ennemis3D.get(1);
+		//ennemis3D.remove(value);
+		
+		
+		
 	}
 
 	@Override
@@ -99,7 +107,7 @@ public class GLHandler implements GLEventListener {
 			float posMissY = this.missile.getY();
 			float posMissX = this.missile.getX();
 				
-			for(int b = 0; b < 2; b++) {		
+			for(int b = 0; b < 1; b++) {		
 					
 				if(posMissY > 6) {
 					removeMissile();
@@ -109,18 +117,39 @@ public class GLHandler implements GLEventListener {
 				System.out.println("Y : " + posMissY);
 				System.out.println("X : " + cube.getX());
 				
-				if (
-						(posMissY > 0 && cube.getX() >= -0.5 && cube.getX() <= 0.5) || 
-						(posMissY > 0 && cube.getX() <= -1.5 && cube.getX() >= -2.5)|| 
-						(posMissY > 0 && cube.getX() <= -3.5 && cube.getX() >= -4.5)|| 
-						(posMissY > 0 && cube.getX() >= 3.5 && cube.getX() <= 4.5)  || 
-						(posMissY > 0 && cube.getX() >= 1.5 && cube.getX() <= 2.5)  || 
-				        (posMissY > 4 && cube.getX() >= 3.5 && cube.getX() <= 4.5)  ||
-				        (posMissY > 2 && cube.getX() >= 1.5 && cube.getX() <= 2.5)){
-							removeMissile();
-							removeEnnemis();
-					System.out.println("je rentre dans la boucle 0 test");
-				} 
+				//		(posMissY > 0 && cube.getX() >= 1.5 && cube.getX() <= 2.5)  || 
+				 //       (posMissY > 4 && cube.getX() >= 3.5 && cube.getX() <= 4.5)  ||
+				 //       (posMissY > 2 && cube.getX() >= 1.5 && cube.getX() <= 2.5)){
+				//			removeMissile();
+				//			removeEnnemis();
+					//		Shape3D ennemis1 = ennemis3D.get(1);
+					//		ennemis3D.remove(ennemis1);
+					//		continue;
+					
+				//}
+				if (posMissY >= 0 && posMissY <=0.1 && cube.getX() >= -0.5 && cube.getX() <= 0.5) {
+					Shape3D value = ennemis3D.get(7);
+					ennemis3D.remove(value);
+					continue;	
+				} if (posMissY > 0 && posMissY <=0.1 && cube.getX() <= -1.5 && cube.getX() >= -2.5) {
+					Shape3D value = ennemis3D.get(8);
+					ennemis3D.remove(value);
+					continue;	
+				} if (posMissY > 0 && posMissY <= 0.1 && cube.getX() <= -3.5 && cube.getX() >= -4.5) {
+					Shape3D value = ennemis3D.get(9);
+					ennemis3D.remove(value);
+					continue;	
+				} if (posMissY > 0 && posMissY <=0.1 && cube.getX() <= 3.5 && cube.getX() >= 4.5) {
+					Shape3D value = ennemis3D.get(12);
+					ennemis3D.remove(value);
+					continue;	
+				} if (posMissY > 0 && posMissY <= 0.1 && cube.getX() >= 1.5 && cube.getX() <= 2.5) {
+					Shape3D value = ennemis3D.get(5);
+					ennemis3D.remove(value);
+					continue;	
+				}
+				
+				
 			}
 		} 
 	}
