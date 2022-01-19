@@ -4,7 +4,6 @@ public class Missile extends Shape3D {
 	
 	private float rquad = 0.0f;
 	public int posMisY;
-	private float maxT;
 	
 	public Missile(float x, float y, float z, float size) {
 		this.x = x; 

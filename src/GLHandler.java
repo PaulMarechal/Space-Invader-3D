@@ -4,8 +4,6 @@ import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.glu.GLU;
-import java.awt.event.MouseEvent;
-
 
 public class GLHandler implements GLEventListener {
 	
@@ -17,9 +15,7 @@ public class GLHandler implements GLEventListener {
 	private Cube3D cube;
 	private Missile missile;
 	private Ennemis ennemis;
-	private float size = (float) 0.1;
 	public int score = 0;
-	
 	
 	public GLHandler() {
 		this.glu = new GLU();
@@ -47,14 +43,6 @@ public class GLHandler implements GLEventListener {
 		ennemis3D.add(new Ennemis(0, 4, -13, 0.5f));
 		ennemis3D.add(new Ennemis(-2, 4, -13, 0.5f));
 		ennemis3D.add(new Ennemis(-4, 4, -13, 0.5f));
-		
-		
-		// test remove
-		//Shape3D value = ennemis3D.get(1);
-		//ennemis3D.remove(value);
-		
-		
-		
 	}
 
 	@Override
@@ -62,7 +50,6 @@ public class GLHandler implements GLEventListener {
 		GL2 gl = draw.getGL().getGL2();
 		gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		gl.glEnable(GL2.GL_DEPTH_TEST);
-		
 	}
 	
 	@Override
@@ -102,30 +89,9 @@ public class GLHandler implements GLEventListener {
 		for (Shape3D i : this.ennemis3D)
 			i.display(gl);
 		
-		//for (Shape3D e : this.ennemis3D) {
-		//	e.display(gl);
-		//	if (e.hit(this.missile.x, this.missile.y)) {
-		//		ennemis3D.remove(e);
-		//		System.out.println("passe dans la boucle ");
-		//		break;
-		//	}
-		//}
+		//System.out.println("ennemis : " + this.ennemis)
 		
-		//for ( Shape3D e : this.ennemis3D) {
-		//	e.display(gl);
-		//}
-		//if(missile != null) {
-		//	for(Shape3D n : ennemis3D) {
-		//		if(n.hit(missile.x, missile.y)) {
-		//			ennemis3D.remove(n);
-		//		}
-		//	}
-			
-		//}
-		float gauche = 2;
-		float droit = 2;
-		
-		
+
 		if(missile != null) {
 			for (Shape3D e : this.ennemis3D) { 
 				if (e.hit(missile.x, missile.y)) {
@@ -140,9 +106,7 @@ public class GLHandler implements GLEventListener {
 					break;
 				}
 			}
-		}
-		
-		
+		}	
 	}
 	
 

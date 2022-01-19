@@ -1,7 +1,6 @@
 import com.jogamp.opengl.GL2;
 
-public abstract class Shape3D 
-{
+public abstract class Shape3D {
 	protected float x, y, z;
 	protected float r, g, b;
 	protected float size;

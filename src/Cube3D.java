@@ -1,10 +1,6 @@
 import com.jogamp.opengl.GL2;
 
-public class Cube3D extends Shape3D
-{
-	
-	private float posX, posY;
-	private float Cube3D;
+public class Cube3D extends Shape3D {
 	
 	public Cube3D(float x, float y, float z, float size) {
 		this.x = x; this.y = y; this.z = z;

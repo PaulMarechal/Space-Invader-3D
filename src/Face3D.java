@@ -1,7 +1,6 @@
 import com.jogamp.opengl.GL2;
 
-public class Face3D extends Shape3D
-{
+public class Face3D extends Shape3D {
 
 	@Override
 	public void display(GL2 gl) {
@@ -12,6 +11,4 @@ public class Face3D extends Shape3D
 			gl.glVertex3d(-1, 1, 0);
 		gl.glEnd();
 	}
-	
-
 }

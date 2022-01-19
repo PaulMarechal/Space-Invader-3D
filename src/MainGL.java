@@ -1,7 +1,6 @@
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
-import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 
@@ -11,7 +10,6 @@ public class MainGL{
 		JFrame fenetre = new JFrame();
 		GLCanvas canvas = new GLCanvas();
 		GLHandler events = new GLHandler();
-		Ennemis ennemis = new Ennemis(0, 0, -10, 0.5f);
 		canvas.addKeyListener(new UserKeyboard(events));
 		canvas.setPreferredSize(new Dimension(800, 600));
 		canvas.addGLEventListener(events);

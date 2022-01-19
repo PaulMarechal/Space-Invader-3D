@@ -1,8 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class UserKeyboard implements KeyListener
-{
+public class UserKeyboard implements KeyListener {
 	
 	private GLHandler events;
 	
