@@ -74,16 +74,4 @@ public class Cube3D extends Shape3D
 	public float getY() {
 		return this.y;
 	}
-	
-	public boolean hit2(float x, float y) {
-		return((posX - size/2 >= x && x <= posX + size/2) && (posY - size/2 >= y && y <= posY + size/2));
-	}
-	
-	public boolean hit(float x, float y) {
-		if (this.x <= posX && this.y >= posY) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 }

@@ -15,10 +15,22 @@ public abstract class Shape3D
 	public abstract void display(GL2 gl);
 
 	public float getY() {
-		return y;
+		return this.y;
 	}
 
 	public void setY(float y) {
 		this.y = y;
+	}
+	
+	public float getX() {
+		return this.x;
+	}
+	
+	public float getSize() {
+		return this.size;
+	}
+	
+	public boolean hit(float x, float y) {
+		return (x - size/2 <= getX() && x+size/2>=getX() && y >= getY() + size/2);
 	}
 }

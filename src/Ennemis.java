@@ -64,9 +64,5 @@ public class Ennemis extends Shape3D {
 		return (float) this.x;
 	}
 
-	public void remove(int j) {
-		// TODO Auto-generated method stub
-		remove(j);
-		
-	}
+
 }
